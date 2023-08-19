@@ -23,8 +23,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /*to check later -one pesky scrollbar at high width% when resizing*/
-      overflow-x: hidden;
     }
     header{
       position: absolute;
