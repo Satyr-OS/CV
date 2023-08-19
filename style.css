@@ -1,0 +1,145 @@
+ 	:root{
+      --font-color:#000;
+      --link-color: rgb(11, 35, 112, .8);
+      --bg-color:rgb(240, 239, 233, 1.0);
+      --bg2-color:rgb(240, 239, 233, .5);
+      --frame-color:rgb(82, 126, 133, 1.0);
+      --info-color: rgb(50, 50, 50, 1.0);
+    }
+
+    [data-theme="dark"] {
+      --font-color: #c1bfbd;
+      --link-color:rgb(46, 96, 255, 0.8);
+      --bg-color: rgb(35, 36, 36, 1.0);
+      --frame-color:rgb(30, 70, 77, 1.0);
+      --info-color: rgb(164, 166, 166, 0.9);
+    }
+
+    body{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*to check later -one pesky scrollbar at high width% when resizing*/
+      overflow-x: hidden;
+    }
+    header{
+      position: absolute;
+      top:.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      max-height: 80px;
+      padding: 10px;
+      padding-bottom: 15px;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      border-radius: 15px;
+      z-index: 9;
+      display: flex;
+      overflow: hidden;
+    }
+
+    #top-badge{
+      border-radius: 15px;
+      background-color: var(--bg-color);
+      color: var(--font-color);
+      max-width: 370px;
+      height: 82px;
+      padding: 8px;
+      padding-top: 0px;
+      padding-bottom: 2px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-evenly;
+    }
+    #profile-photo{
+
+      max-width: 84px;
+      max-height: 84px;
+      border-radius: 15px;
+      margin-left: 10px;
+      z-index: 10;
+    }
+    main{
+      position: absolute;
+      top: 6%;
+      left:0%;
+      width:99%;
+      margin-top: 70px;
+      padding:5px;
+      padding-bottom: 30px;
+      z-index: 8;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+    }
+    h3{
+      position: relative;
+      left:2%;
+    }
+    .chapter{
+      position: relative;
+      border-radius: 15px;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      max-width: 450px;
+      padding: 5px;
+      margin: .5%;
+      margin-top: 0%;
+      margin-bottom: 20px;
+    }
+    .entry{
+      background-color: var(--bg-color);
+      color: var(--font-color);
+      border-radius: 10px;
+      padding:10px;
+      margin: 10px;
+      width: calc(100% - 40px);
+      transition: 0.3s;
+    }
+    .info{
+      color: var(--info-color);
+    }
+    #name{
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      padding-top:1%;
+    }
+
+    ul{
+      line-height:140%;
+    }
+    .first-li{
+      list-style: none;
+      font-weight: bold;
+    }
+    footer{
+      position: fixed;
+      width: 97.5%;
+      bottom:0%;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      border-radius: 5px;
+      border-top: 2px solid var(--bg-color);
+      padding: 0.3%;
+      clear: both;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-left: 0.25%;
+      z-index: 9;
+    }
+    .neat-bottom{
+      margin-right:auto;
+
+    }
+    a{
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--link-color);
+    }
