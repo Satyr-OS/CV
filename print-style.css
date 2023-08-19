@@ -1,0 +1,50 @@
+@media print{
+      body{
+      background-color: var(--bg-color);
+    }
+    header{
+      background-color: var(--frame-color);
+      color: var(--font-color);
+    }
+
+    #top-badge{
+      background-color: var(--bg-color);
+      color: var(--font-color);
+    }
+
+    .chapter{
+      background-color: var(--frame-color);
+      color: var(--font-color);
+    }
+    .entry{
+      background-color: var(--bg-color);
+      color: var(--font-color);
+    }
+    .info{
+      color: var(--info-color);
+    }
+    footer{
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      border-top: 2px solid var(--bg-color);
+    }
+    a{
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--link-color);
+    }
+
+    /*--darkmode-->
+    as seen on: https://redstapler.co/pure-css-minimal-dark-mode-toggle-button/
+    checkbox targets the next label in order to work
+    */
+      #clicky{
+        visibility: hidden;
+      }
+      :root, [data-theme="dark"]{
+      --font-color:#000;
+      --link-color: rgb(11, 35, 112, .8);
+      --bg-color:white;
+      --frame-color:rgb(82, 126, 133, 1.0);
+      --info-color: rgb(50, 50, 50, 1.0);
+    }
