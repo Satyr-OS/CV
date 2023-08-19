@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CV">
+  <meta name="keywords" content="HTML, CSS">
+  <meta name="author" content="Panagiotis Anagnostou">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panagiotis Anagnostou</title>
+
+  <!--Components-->
+  <!--
+  <link rel="stylesheet" type="text/css" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/style.css">
+  <link rel="stylesheet" type="text/css" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/button.css">
+  <link rel="script" type="text/javascript" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/script.js">
+  -->
+  <!--future me: separate the script and css so that it isn't a huge ugly wall of text-->
+  
+  <!--CSS go-->
+  <style>
+    /*future me: make a printer friendly version
+    */
+    :root{
+      --font-color:#000;
+      --link-color: rgb(11, 35, 112, .8);
+      --bg-color:rgb(240, 239, 233, 1.0);
+      --bg2-color:rgb(240, 239, 233, .5);
+      --frame-color:rgb(82, 126, 133, 1.0);
+      --info-color: rgb(50, 50, 50, 1.0);
+    }
+
+    [data-theme="dark"] {
+      --font-color: #c1bfbd;
+      --link-color:rgb(46, 96, 255, 0.8);
+      --bg-color: rgb(35, 36, 36, 1.0);
+      --frame-color:rgb(30, 70, 77, 1.0);
+      --info-color: rgb(164, 166, 166, 0.9);
+    }
+
+    body{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*to check later -one pesky scrollbar at high width% when resizing*/
+      overflow-x: hidden;
+    }
+    header{
+      position: absolute;
+      top:.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      max-height: 80px;
+      padding: 10px;
+      padding-bottom: 15px;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      border-radius: 15px;
+      z-index: 9;
+      display: flex;
+      overflow: hidden;
+    }
+
+    #top-badge{
+      border-radius: 15px;
+      background-color: var(--bg-color);
+      color: var(--font-color);
+      max-width: 370px;
+      height: 82px;
+      padding: 8px;
+      padding-top: 0px;
+      padding-bottom: 2px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-evenly;
+    }
+    #profile-photo{
+
+      max-width: 84px;
+      max-height: 84px;
+      border-radius: 15px;
+      margin-left: 10px;
+      z-index: 10;
+    }
+    main{
+      position: absolute;
+      top: 6%;
+      left:0%;
+      width:99%;
+      margin-top: 70px;
+      padding:5px;
+      padding-bottom: 30px;
+      z-index: 8;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+    }
+    h3{
+      position: relative;
+      left:2%;
+    }
+    .chapter{
+      position: relative;
+      border-radius: 15px;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      max-width: 450px;
+      padding: 5px;
+      margin: .5%;
+      margin-top: 0%;
+      margin-bottom: 20px;
+    }
+    .entry{
+      background-color: var(--bg-color);
+      color: var(--font-color);
+      border-radius: 10px;
+      padding:10px;
+      margin: 10px;
+      width: calc(100% - 40px);
+      transition: 0.3s;
+    }
+    .info{
+      color: var(--info-color);
+    }
+    #name{
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      padding-top:1%;
+    }
+
+    ul{
+      line-height:140%;
+    }
+    .first-li{
+      list-style: none;
+      font-weight: bold;
+    }
+    footer{
+      position: fixed;
+      width: 97.5%;
+      bottom:0%;
+      background-color: var(--frame-color);
+      color: var(--font-color);
+      border-radius: 5px;
+      border-top: 2px solid var(--bg-color);
+      padding: 0.3%;
+      clear: both;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-left: 0.25%;
+      z-index: 9;
+    }
+    .neat-bottom{
+      margin-right:auto;
+
+    }
+    a{
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--link-color);
+    }
+
+    /*--darkmode-->
+    as seen on: https://redstapler.co/pure-css-minimal-dark-mode-toggle-button/
+    checkbox targets the next label in order to work
+    */
+    #clicky {
+      width:24px;
+      height:42px;
+      position: fixed;
+      display: block;
+      background: #ebebeb;
+      border-radius: 20px;
+      box-shadow: inset 0px 2px 5px rgba(0,0,0,0.4), inset 0px -2px 5px rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: 0.3s;
+      top:3%;
+      left:0.5%;
+      z-index: 10;
+    }
+    #clicky:after {
+      content: "";
+      width:20px;
+      height: 20px;
+      position: absolute;
+      top:2px;
+      left:2px;
+      background: linear-gradient(180deg,#ffcc89,#d8860b);
+      border-radius: 20px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    #darkmode-toggle {
+      /*--the button should be "visibility:hidden" unless debugging--*/
+      position: absolute;
+      top: 5vh;
+      width: 20px;
+      height: 20px;
+      z-index: 100;
+      visibility: hidden;
+    }
+    #darkmode-toggle:checked + #clicky {
+      background: #242424;
+    }
+    #darkmode-toggle:checked + #clicky:after {
+      top: calc(3% + 40px);
+      transform: translateY(-100%);
+      background: linear-gradient(180deg,#777,#3a3a3a);
+    }
+    #clicky:active:after{
+      height: 38px;
+    }
+
+  </style>
+  <script type="text/javascript">
+    //As seen on
+    //https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting
+    //2nd part in body needs to be after the checkbuton+label!!!
+
+    function detectColorScheme(){
+      var theme="light";    //default to light
+
+      //local storage is used to override OS theme settings
+      if(localStorage.getItem("theme")){
+        if(localStorage.getItem("theme") == "dark"){
+          var theme = "dark";
+        }
+      } else if(!window.matchMedia) {
+        //matchMedia method not supported
+        return false;
+      } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        //OS theme setting detected as dark
+        var theme = "dark";
+      }
+
+      //dark theme preferred, set document with a `data-theme` attribute
+      if (theme=="dark") {
+       document.documentElement.setAttribute("data-theme", "dark");
+     }
+   }
+    detectColorScheme();
+ </script>
+</head>
+
+<!--main CV go-->
+<body>
+
+
+  <label id="dm-toggler">
+    <input type="checkbox" id="darkmode-toggle">
+    <label id="clicky" for="darkmode-toggle"></label>
+  </label>
+
+  <div class="background"></div>
+
+  <script type="text/javascript">
+    //This part does NOT go wherever as per S.O.!
+    //Must be AFTER the checkbuton+label!!!
+    //the checkbox must be encapsulated by the label to work. 
+    //(to future me: maybe there is a cleaner way to write this?)
+
+    //identify the toggle switch HTML element
+    const toggleSwitch = document.querySelector('#dm-toggler input[type="checkbox"]');
+
+    //function that changes the theme, and sets a localStorage variable to track the theme between page loads
+    function switchTheme(e) {
+      if (e.target.checked) {
+        localStorage.setItem('theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleSwitch.checked = true;
+      } else {
+        localStorage.setItem('theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'light');
+        toggleSwitch.checked = false;
+      }    
+    }
+
+    //listener for changing themes
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    //pre-check the dark-theme checkbox if dark-theme is set
+    if (document.documentElement.getAttribute("data-theme") == "dark"){
+      toggleSwitch.checked = true;
+    }
+  </script>
+
+
+  <header>
+    <div id="top-badge">
+      <div id="name">Panagiotis Anagnostou</div>
+
+    </div>
+    <a href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/athenaCard.png"><img id="profile-photo" src="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/athenaCard.png" alt="ProfilePhoto"></a>
+    
+  </header>
+  <main>
+
+    <div id="work-experience" class="chapter">
+
+      <h3>Work Experience</h3>
+
+      <div class="entry">
+        <strong>Marine Engineer</strong><br>
+        October 2021 - March 2022 (6 months)
+        <div class="info">
+          GasLog LNG Services Ltd.<br>
+          Piraeus, Attiki, Greece
+          <ul class="details">
+            <li>Officer in charge of Engineering Watch.</li>
+            <li>Responsible for good operation and maintenance of machinery.</li>
+            <li>Team coordinator of engine crew assigned under my responsibility by 2nd engineer (Engineering Supervisor).</li>
+            <li>Keeping Inventory Records of Lubricants.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>Engineering Apprentice</strong><br>
+        October 2020 - March 2021 (6 months)
+        <div class="info">
+          GasLog LNG Services Ltd.<br>
+          Piraeus, Attiki, Greece
+          <ul class="details">
+            <li>Trainee Officer of Engineering Watch.</li>
+            <li>Responsible to learn engineering practices and assist the appointed instructing Engineer Officer.</li>
+            <li>Performing Engineering Watch under guidance of the instructor Engineer.</li>
+            <li>Being part of maintenance team under appointed Engineer officer.</li>
+            <li>Responsible of keeping records of the Engine Log Book.</li>
+            <li>Assisting in keeping inventory Records of Spares and Chemicals.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>Engineering Apprentice</strong><br>
+        August 2018 - March 2019 (6 months)
+        <div class="info">
+          European Product Carriers LTD<br>
+          Glyfada, Athens, Greece
+
+          <ul class="details">
+            <li>Trainee Officer of Engineering Watch.</li>
+            <li>Responsible to learn engineering practices and assist the appointed instructing Engineer Officer.</li>
+            <li>Being part of maintenance team under appointed Engineer officer.</li>
+            <li>Assisting in keeping inventory Records of Spares.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>Soldier, Artillery Forces, Communications Specialist</strong><br>
+        Hellenic Army
+        <div class="info">
+          November 2014 - August 2015 (9 months)
+          <ul class="details">
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>Office Assistant</strong><br>
+        Thalkat Shipping S.A.
+        <div class="info">
+          August 2014 - October 2014 (3 months)<br>
+          Voula, Athens, Greece
+          <ul class="details">
+            <li>General Assistant</li>
+            <li>Accountant Assistant</li>
+            <li>In charge of cross-checking Master General Accounts (MGA's)</li>
+            <li>Created a spreadsheet as a MGA form/calculator (Excel)</li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!--Thus ends work experience-->
+    <!--Thus starts Education experience-->
+
+    <div id="education" class="chapter">
+      <h3>Education</h3>
+      <div class="entry">
+        <strong>Technical Diploma, Marine Engineering</strong><br>
+        September 2017 - September 2020
+        <div class="info">
+          Mediterranean Maritime Academy<br>
+          Limassol, Cyprus
+          <ul class="details">
+            <li>Maritime Machinery</li>
+            <li>Maritime Automation & Control</li>
+            <li>Ship Stability</li>
+          </ul>
+        </div>
+
+      </div>
+
+
+      <div class="entry">
+        <strong>Master’s Degree, Robotics</strong><br>
+        September 2015 - September 2016
+        <div class="info">
+          University of Plymouth<br>
+          Plymouth, Devon, UK
+          <ul class="details">
+            <li>Neural Networks & Control</li>
+            <li>Human-Robot Interaction</li>
+            <li>Robot Software Engineering</li>
+            <li>Computer Vision</li>
+            <li>Project on improving Drake Robots' gait algorithm for stability and speed. Language: C++</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>Bachelor’s Degree, Physics</strong><br>
+        September 2008 - July 2014
+        <div class="info">
+          University of Ioannina <br>
+          Ioannina, Epirus, Greece
+          <ul class="details">
+            <li>Intro modules on C & C++</li>
+            <li>Analog and Digital circuits and applications</li>
+            <li>Quantum Physics</li>
+            <li>Electrodynamics</li>
+            <li>Thermodynamics & Thermochemistry</li>
+            <li>Classical Mechanics</li>
+            <li>Advanced Mathematics</li>
+            <li>Optics</li>
+            <li>Lasers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="languages-spoken">
+
+        <h3 id="h3lang">Languages</h3>
+
+        <div class="entry">
+          <strong>Greek</strong>
+          <div class="info">
+            <ul class="details">
+              <li>Native</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <strong>English</strong>
+          <div class="info">
+            <ul class="details">
+              <li>Professional/Academic level</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="hobbies" class="chapter">
+
+      <h3>Hobbies</h3>
+
+      <div class="entry">
+        <strong>Learning HTML & CSS</strong>
+        <div class="info">
+          <ul class="details">
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>Learning Godot</strong>
+        <div class="info">
+          <ul class="details">
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>Linux & Open Source Enthusiast</strong>
+        <div class="info">
+          I use <s>Arch</s> EndeavourOS btw, as a daily driver
+          <ul class="details">
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>Repurposing old hardware</strong>
+        <div class="info">
+          Made an old laptop into a NAS and emulation console
+          <ul class="details">
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>YouTube Channel</strong>
+        <div class="info">
+          -Stalled Project-<br>
+          Channel is about Linux, Gaming on Linux and Game Reviews
+          <ul class="details">
+            <li class="first-li">Learned about:</li>
+            <li>Video production</li>
+            <li>Editing</li>
+            <li>Compositing</li>
+            <li>Motion graphics (created my own)</li>
+            <li>Sound recording & design</li>
+          </ul>
+          <ul class="details">
+            <li class="first-li">Software used:</li>
+            <li>Blender</li>
+            <li>Ardour</li>
+            <li>OBS Studio</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>Coding a Card Game</strong>
+        <div class="info">
+          -Stalled Project-<br>
+          Learned that writing <em>clean</em>, <em>efficient</em> and <em>modularized</em> code is a never ending streamlining process that can lead to better QoL down the road. It needs a lot of re-iteration to get there.
+
+          <ul class="details">
+            <li class="first-li">Language used:</li>
+            <li>C#</li>
+          </ul>
+          <ul class="details">
+            <li class="first-li">Engine:</li>
+            <li>Unity</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>Coded a Sorting App</strong>
+        <div class="info">
+          Used while i was an assistant for the accounting department of Thalkat.<br>
+          Coded a tool, as a personal side project, to read entries using an existing unsorted CSV and create a new one with sorted entries (in a way legible to accounting).
+          <ul class="details">
+            <li class="first-li">Language used:</li>
+            <li>C++</li>
+          </ul>
+          <ul class="details">
+            <li class="first-li">IDE used:</li>
+            <li>Qt</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="neat-bottom">Contact: </span>
+    <span class="neat-bottom"><b>e-mail</b>: <em>panagn@outlook.com</em></span>
+    <span class="neat-bottom"><a href="https://github.com/Satyr-OS/CV">GitHub profile</a>
+    <span class="neat-bottom"><a href="https://www.linkedin.com/in/anagnostou-panagiotis-2179aa7b">LinkedIn profile</a></span>
+  </footer>
+</body>
+</html>
+
