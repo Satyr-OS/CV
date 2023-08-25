@@ -3,316 +3,299 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="CV">
-  <meta name="keywords" content="HTML, CSS">
   <meta name="author" content="NAME">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>CV</title>
 
   <!--Components-->
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="button.css">
-  <link rel="stylesheet" type="text/css" href="print-style.css">
-  <link rel="script" type="text/javascript" href="script.js">
-  <script>
-    detectColorScheme();
-  </script>
+  <link rel="icon" type="image/png" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/CV.png"/>
+  <link rel="stylesheet" type="text/css" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/mint-style.css">
+  <link rel="stylesheet" type="text/css" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/button.css">
+  <link rel="stylesheet" type="text/css" href="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/print-style.css">
+  <script type="text/javascript" src="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/script.js"></script>
+
 </head>
 
-<!--main CV go-->
 <body>
 
+  <header class="chapter">
+    <span class="entry">YOUR_NAME</span>
+    <a href="PHOTO_LINK"><img id="profile-photo" src="PHOTO_LINK" target="_blank" alt="ProfilePhoto"></a>
 
-  <label id="dm-toggler">
-    <input type="checkbox" id="darkmode-toggle">
-    <label id="clicky" for="darkmode-toggle"></label>
-  </label>
-
-  <div class="background"></div>
-
-  <script type="text/javascript">
-    //This part does NOT go wherever as per S.O.!
-    //Must be AFTER the checkbuton+label!!!
-    //the checkbox must be encapsulated by the label to work. 
-    //(to future me: maybe there is a cleaner way to write this?)
-
-    //identify the toggle switch HTML element
-    const toggleSwitch = document.querySelector('#dm-toggler input[type="checkbox"]');
-
-    //function that changes the theme, and sets a localStorage variable to track the theme between page loads
-    function switchTheme(e) {
-      if (e.target.checked) {
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('data-theme', 'dark');
-        toggleSwitch.checked = true;
-      } else {
-        localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('data-theme', 'light');
-        toggleSwitch.checked = false;
-      }    
-    }
-
-    //listener for changing themes
-    toggleSwitch.addEventListener('change', switchTheme, false);
-
-    //pre-check the dark-theme checkbox if dark-theme is set
-    if (document.documentElement.getAttribute("data-theme") == "dark"){
-      toggleSwitch.checked = true;
-    }
-  </script>
-
-
-  <header>
-    <div id="top-badge">
-      <div id="name">NAME</div>
-
+    <!--dark-mode button-->
+    <div id="dm-toggler">
+      <input type="checkbox" id="darkmode-toggle">
+      <label id="clicky" for="darkmode-toggle"></label>
     </div>
-    <a href="link_to_profile_photo" alt="ProfilePhoto"></a>
-    
+
+    <!--script for dark-mode button-->
+    <script type="text/javascript" src="https://filedn.com/lAQv5HJuYTSYmtwfhc0lE3h/script-body.js"></script>
+
   </header>
+
   <main>
 
-    <div id="work-experience" class="chapter">
-
+    <section id="work-experience" class="chapter">
       <h3>Work Experience</h3>
 
       <div class="entry">
-        <strong>Job Title</strong><br>
-        From - Until (x months)
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Company_name<br>
-          Place
+          COMPANY <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-            <li>detail#4</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
 
       <div class="entry">
-        <strong>Job Title</strong><br>
-        From - Until (x months)
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Company_name<br>
-          Place
+          COMPANY <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-            <li>detail#4</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
 
       <div class="entry">
-        <strong>Job Title</strong><br>
-        From - Until (x months)
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Company_name<br>
-          Place
+          COMPANY <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-            <li>detail#4</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
 
       <div class="entry">
-        <strong>Job Title</strong><br>
-        From - Until (x months)
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Company_name<br>
-          Place
+          COMPANY <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-            <li>detail#4</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
+
+      <div class="entry">
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
+        <div class="info">
+          COMPANY <br>
+          PLACE
+          <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="chapter">
+
+      <h3>Education</h3>
       
       <div class="entry">
-        <strong>Job Title</strong><br>
-        From - Until (x months)
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Company_name<br>
-          Place
+          INSTITUTION <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-            <li>detail#4</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
-      </div>
-
-    </div>
-    <!--Thus ends work experience-->
-    <!--Thus starts Education experience-->
-
-    <div id="education" class="chapter">
-      <h3>Education</h3>
-      <div class="entry">
-        <strong>Title</strong><br>
-        From - Until
-        <div class="info">
-          Institution<br>
-          Place
-          <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-          </ul>
-        </div>
-
-      </div>
-
-
-<div class="entry">
-        <strong>Title</strong><br>
-        From - Until
-        <div class="info">
-          Institution<br>
-          Place
-          <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
-          </ul>
-        </div>
-
       </div>
 
 
       <div class="entry">
-        <strong>Title</strong><br>
-        From - Until
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
         <div class="info">
-          Institution<br>
-          Place
+          INSTITUTION <br>
+          PLACE
           <ul class="details">
-            <li>detail#1</li>
-            <li>detail#2</li>
-            <li>detail#3</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
-
       </div>
 
-      <div id="languages-spoken">
 
-        <h3 id="h3lang">Languages</h3>
-
-        <div class="entry">
-          <strong>Lang#1</strong>
-          <div class="info">
-            <ul class="details">
-              <li>Native</li>
-            </ul>
-          </div>
+      <div class="entry">
+        <strong>TITLE</strong><br>
+        MONTH XXXX - MONTH XXXX (Y months)
+        <div class="info">
+          INSTITUTION <br>
+          PLACE
+          <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
+          </ul>
         </div>
-
-        <div class="entry">
-          <strong>Lang#2</strong>
-          <div class="info">
-            <ul class="details">
-              <li>level</li>
-            </ul>
-          </div>
-        </div>
-
       </div>
 
-    </div>
+      <h3 id="h3lang">Languages</h3>
+
+      <div class="entry">
+        <strong>LANGUAGE 1</strong>
+        <div class="info">
+          <ul class="details">
+            <li>Native</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <strong>LANGUAGE 2</strong>
+        <div class="info">
+          <ul class="details">
+            <li>Professional/Academic level</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
 
 
-    <div id="hobbies" class="chapter">
+    <section id="hobbies" class="chapter">
 
       <h3>Hobbies</h3>
 
       <div class="entry">
-        <strong>Hobby#1</strong>
+        <strong>HOBBY</strong><br>
         <div class="info">
+          INFO
           <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
-
       <div class="entry">
-        <strong>Hobby#2</strong>
+        <strong>HOBBY</strong><br>
         <div class="info">
+          INFO
           <ul class="details">
-          </ul>
-        </div>
-      </div>
-
-
-      <div class="entry">
-        <a href="LINK" target="_blank"><strong>Hobby#3 with link</strong></a>
-        <div class="info">
-          info<br>
-          about
-          <ul class="details">
-            <li class="first-li">Learned about:</li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-          <ul class="details">
-            <li class="first-li">Software used:</li>
-            <li>Blender</li>
-            <li>Ardour</li>
-            <li>OBS Studio</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
 
 
       <div class="entry">
-        <strong>Hobby#4</strong>
+        <strong>HOBBY</strong><br>
         <div class="info">
-          info
+          INFO
           <ul class="details">
-            <li class="first-li">Language used:</li>
-            <li>C#</li>
-          </ul>
-          <ul class="details">
-            <li class="first-li">Engine:</li>
-            <li>Unity</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
 
 
       <div class="entry">
-        <strong>Hobby#5</strong>
+        <strong>HOBBY</strong><br>
         <div class="info">
-          info
+          INFO
           <ul class="details">
-            <li class="first-li">Language used:</li>
-            <li>C++</li>
-          </ul>
-          <ul class="details">
-            <li class="first-li">IDE used:</li>
-            <li>Qt</li>
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
           </ul>
         </div>
       </div>
-    </div>
+
+      <div class="entry">
+        <strong>HOBBY</strong><br>
+        <div class="info">
+          INFO
+          <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>HOBBY</strong><br>
+        <div class="info">
+          INFO
+          <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="entry">
+        <strong>HOBBY</strong><br>
+        <div class="info">
+          INFO
+          <ul class="details">
+            <li>Highlight 1</li>
+            <li>Highlight 2</li>
+            <li>Highlight 3</li>
+            <li>Highlight 4</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
   </main>
 
   <footer>
     <span class="neat-bottom">Contact: </span>
-    <span class="neat-bottom"><b>e-mail</b>: <em>your@email.com</em></span>
-    <span class="neat-bottom"><a href="link-to-github" target="_blank">GitHub profile</a></span>
-    <span class="neat-bottom"><a href="link-to-linkedin" target="_blank">LinkedIn profile</a></span>
+    <span class="neat-bottom"><b>e-mail</b>: <em>YOUR@EMAIL.com </em></span>
+    <span class="neat-bottom"><b>mobile</b>: <em>+CC YOUR_NUMBER </em></span>
+    <span class="neat-bottom"><a href="RELEVANT_LINK" target="_blank"> GitHub </a></span>
+    <span class="neat-bottom"><a href="RELEVANT_LINK" target="_blank"> LinkedIn </a></span>
   </footer>
 </body>
 </html>
-
